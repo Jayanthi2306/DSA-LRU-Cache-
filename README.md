@@ -1,28 +1,61 @@
 # DSA-LRU-Cache-
- LRU Cache Implementation in Python
- Overview
-This project implements an LRU (Least Recently Used) Cache from scratch using core data structures.
-The cache supports get and put operations in O(1) time complexity.
-This design closely follows how real-world cache systems work and is commonly asked in technical interviews.
- Features
-Fixed capacity cache
-get(key) → retrieves value if present, else -1
-put(key, value) → inserts or updates key
-Automatically evicts least recently used item when capacity is exceeded
-Console-based interaction
- Data Structures Used
-Data Structure	Purpose
-HashMap (dict)	Fast key → node lookup (O(1))
-Doubly Linked List	Track usage order
-Custom Node Class	Store key-value pairs
- Design Explanation
- Doubly Linked List
-Most Recently Used (MRU) → near head
-Least Recently Used (LRU) → near tail
-Enables O(1) insertion and deletion
- HashMap
-Maps keys to linked list nodes
-Allows constant-time access
-⚡ Why O(1)?
-HashMap lookup → O(1)
-Doubly linked list removal/addition → O(1)
+# LRU Cache System
+
+## Description
+This project implements an **LRU (Least Recently Used) Cache** using core data structures.  
+The cache stores key-value pairs with a fixed capacity and evicts the least recently accessed item when the capacity is exceeded.
+
+The implementation guarantees **O(1)** time complexity for both retrieval and insertion operations.
+
+---
+
+## Data Structures Used
+
+- Hash Map (Dictionary)
+- Doubly Linked List
+- Custom Node Class
+
+---
+
+## Features
+
+- Insert key-value pairs into the cache
+- Retrieve values in constant time
+- Automatic eviction of least recently used items
+- Efficient update of recently accessed elements
+- Console-based interactive interface
+
+---
+
+## System Design Overview
+
+The cache is implemented using a combination of a hash map and a doubly linked list.
+
+### Hash Map
+- Maps keys directly to nodes in the linked list
+- Enables constant-time lookup
+
+### Doubly Linked List
+- Maintains the access order of cache elements
+- Most recently used node is placed near the head
+- Least recently used node is placed near the tail
+
+Dummy head and tail nodes are used to simplify insertion and deletion logic.
+
+---
+
+## Operations Supported
+
+- `put(key, value)`  
+  Inserts or updates a key in the cache.
+
+- `get(key)`  
+  Returns the value if the key exists, otherwise returns `-1`.
+
+- Automatic eviction  
+  Removes the least recently used key when capacity is exceeded.
+
+---
+
+
+
